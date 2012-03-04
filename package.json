@@ -1,7 +1,7 @@
 {
   "name":"base12",
   "description":"12factor.net app platform for node.js, built on express 3",
-  "version":"0.1.4",
+  "version":"0.1.5",
   "author":"Hunter Loftis <hunter@hunterloftis.com>",
   "contributors": [
     { "name": "Hunter Loftis", "email": "hunter@hunterloftis.com" },
@@ -17,7 +17,7 @@
 
   },
   "keywords": ["base12", "framework", "web", "rest", "restful", "deploy", "deployment", "12factor", "cloud"],
-  "repository": "https://github.com/hunterloftis/base12",
+  "repository": "https://github.com/Skookum/base12",
   "main": "index",
   "bin": { "base12": "./bin/base12"},
   "scripts": {
