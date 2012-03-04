@@ -19,6 +19,7 @@
   "keywords": ["base12", "framework", "web", "rest", "restful", "deploy", "deployment", "12factor", "cloud"],
   "repository": "https://github.com/hunterloftis/base12",
   "main": "index",
+  "bin": { "base12": "./bin/base12"},
   "scripts": {
     "prepublish": "npm prune"
   },
