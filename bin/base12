@@ -1,12 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-git clone git://github.com/Skookum/base12.git $1
-cd $1
-git remote rename origin upstream
-npm install
-
-echo ''
-echo "Next: try your new base12 project!"
-echo "'cd $1'"
-echo "'node run'"
-echo ''
+require('path').exists(__dirname+'/../scripts/'+process.argv[2]+'.js', function(exists) {
+  if (exists) {
+    require(__dirname+'/../scripts/'+process.argv[2])();
+  }
+  else {
+    console.log("Unable to find a scipt for this command: " + process.argv[2]); 
+  }
+});
