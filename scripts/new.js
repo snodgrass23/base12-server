@@ -33,10 +33,3 @@ module.exports = function(){
 
 
 };
-
-
-// echo ''
-// echo "Next: try your new base12 project!"
-// echo "'cd $1'"
-// echo "'node run'"
-// echo ''
