@@ -8,7 +8,7 @@ cache="$HOME/.base12/cached"
 show_help () {
   echo -e "Usage: ${prog} option|dest\n" 1>&2
   echo "    -h|--help     Show this" 1>&2
-  echo -e "    -c|--cache    Cache base12 localy\n" 1>&2
+  echo -e "    -c|--cache    Cache base12 locally\n" 1>&2
 }
 
 on_fail () {
@@ -21,7 +21,7 @@ on_fail () {
 
 gen_cache () {
   rm -rf "${cache}" 2> /dev/null
-  git clone git://github.com/Skookum/base12.git "${cache}"
+  git clone git://github.com/Skookum/base12.git --depth 1 "${cache}"
   on_fail 'Clone of base12 failed!'
 
   cd "${cache}"
@@ -39,14 +39,14 @@ generate () {
   if [ -d "${cache}" ] ; then
     cp -R "${cache}" "${dest}"
   else
-    git clone git://github.com/Skookum/base12.git "${dest}"
+    git clone git://github.com/Skookum/base12.git --depth 1 "${dest}"
   fi
   on_fail 'Clone of base12 failed!'
 
   # Rename upstream
   cd "${dest}"
-  git remote rename origin upstream
-  on_fail 'Rename of upstream failed!'
+  rm -rf .git
+  on_fail 'Removal of git origin failed!'
 
   # Install packages
   npm install
