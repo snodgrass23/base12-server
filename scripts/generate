@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+require('path').exists(__dirname+'/../generate/'+process.argv[3]+'.js', function(exists) {
+  if (exists) {
+    require(__dirname+'/../generate/'+process.argv[3])();
+  }
+  else {
+    console.log("Unable to find a generator for: " + process.argv[3]); 
+  }
+});
