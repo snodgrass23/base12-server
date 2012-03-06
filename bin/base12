@@ -3,6 +3,6 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 scriptname=$1
 
-exec "${DIR}/../scripts/${scriptname}"
+${DIR}/../scripts/${scriptname} $@
 
 exit 0
