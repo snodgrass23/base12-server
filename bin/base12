@@ -4,12 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 scriptname=$1
 
-echo "script $scriptname"
-
 shift
 
-echo "args $@"
-
-`${DIR}/../scripts/${scriptname} $@`
+${DIR}/../scripts/${scriptname} $@
 
 exit 0

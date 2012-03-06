@@ -43,7 +43,7 @@ generate () {
   fi
   on_fail 'Clone of base12 failed!'
 
-  # Rename upstream
+  # Remove upstream git
   cd "${dest}"
   rm -rf .git
   on_fail 'Removal of git origin failed!'
