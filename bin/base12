@@ -1,10 +1,8 @@
-#!/usr/bin/env node
+#!/bin/bash
 
-require('path').exists(__dirname+'/../scripts/'+process.argv[2]+'.js', function(exists) {
-  if (exists) {
-    require(__dirname+'/../scripts/'+process.argv[2])();
-  }
-  else {
-    console.log("Unable to find a scipt for this command: " + process.argv[2]); 
-  }
-});
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+scriptname=$1
+
+exec "${DIR}/../scripts/${scriptname}"
+
+exit 0
