@@ -11,7 +11,8 @@
   ],
   "dependencies": {
     "connect":"2.0.1",
-    "express":"git://github.com/visionmedia/express.git"
+    "express":"git://github.com/visionmedia/express.git",
+    "jade":"latest"
   },
   "devDependencies": {
 
