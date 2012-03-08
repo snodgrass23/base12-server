@@ -1,7 +1,10 @@
 #!/bin/bash
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 scriptname=$1
+
+shift
 
 ${DIR}/../scripts/${scriptname} $@
 
