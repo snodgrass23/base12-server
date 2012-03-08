@@ -4,7 +4,7 @@ var fs = require('fs'),
     template_dir = __dirname+'/templates/',
     resource_name = process.argv[4],
     app_root = process.env.PWD,
-    app_path = __dirname.split("/"),
+    app_path = app_root.split("/"),
     app_name = app_path[app_path.length - 1];
 
 
