@@ -3,8 +3,8 @@ var lib = require('../lib/inflections');
 
 lib.parseArgs = function(in_args, callback) {
   
-  var resource_name = in_args[4],
-      args = in_args.slice(5);
+  var resource_name = in_args[3],
+      args = in_args.slice(4);
 
   this.buildOptions(args, function(err, options) {
     // build resource object with name and options

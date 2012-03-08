@@ -4,7 +4,7 @@ var fs = require('fs'),
     async = require('async'),
     template_dir = __dirname+'/templates/',
     resource,
-    resource_name = process.argv[4],
+    resource_name = process.argv[3],
     app_root = process.env.PWD,
     app_path = app_root.split("/"),
     app_name = app_path[app_path.length - 1];
