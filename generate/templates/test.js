@@ -4,11 +4,11 @@ var vows = require('vows'),
     _resource_Model = require('../app/models/_resource_');
 
 
-// test descriptions
+// test descriptions for _resource_
 vows.describe('_resource_ model test').addBatch({
   
   // example test
-  'remove all _resources_' : {
+  'example test' : {
     topic: function() {
       this.callback(null, 2);
     },
