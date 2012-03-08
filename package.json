@@ -15,7 +15,8 @@
     "express":"git://github.com/visionmedia/express.git",
     "async":"latest",
     "underscore":"latest",
-    "jade":"latest"
+    "jade":"latest",
+    "commander":"latest"
   },
   "devDependencies": {
 
