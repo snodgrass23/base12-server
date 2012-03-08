@@ -2,7 +2,7 @@
 
 var path = require('path');
 
-var gen_file = './generators' + process.argv[3] + '.js';
+var gen_file = __dirname+'/../generate/'+process.argv[2]+'.js';
 console.log("GEN file:", gen_file);
 
 path.exists(gen_file, function(exists) {
