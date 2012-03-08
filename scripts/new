@@ -1,8 +1,8 @@
 #!/bin/bash
 # vim: set ts=2 sw=2 et:
 
-prog=$1
-dest=$2
+prog=$0
+dest=$1
 cache="$HOME/.base12/cached"
 
 show_help () {
@@ -21,7 +21,7 @@ on_fail () {
 
 gen_cache () {
   rm -rf "${cache}" 2> /dev/null
-  git clone git://github.com/Skookum/base12.git "${cache}"
+  git clone git://github.com/Skookum/base12.git --depth 1 "${cache}"
   on_fail 'Clone of base12 failed!'
 
   cd "${cache}"
@@ -39,11 +39,11 @@ generate () {
   if [ -d "${cache}" ] ; then
     cp -R "${cache}" "${dest}"
   else
-    git clone git://github.com/Skookum/base12.git "${dest}"
+    git clone git://github.com/Skookum/base12.git --depth 1 "${dest}"
   fi
   on_fail 'Clone of base12 failed!'
 
-  # Rename upstream
+  # Remove upstream git
   cd "${dest}"
   rm -rf .git
   on_fail 'Removal of git origin failed!'
