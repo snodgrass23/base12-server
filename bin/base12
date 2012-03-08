@@ -5,6 +5,6 @@ scriptname=$1
 
 shift
 
-echo "$dirname/$scriptname.js" "$@"
+"$dirname/$scriptname" "$@"
 
 exit 0
