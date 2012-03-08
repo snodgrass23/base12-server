@@ -57,6 +57,8 @@ function buildModel(props) {
   return model;
 }
 
+
+
 /**
  * build new test file using template
  * @param {Array} props the properties for the new resource
@@ -83,6 +85,8 @@ function buildTest(props) {
 
   return test;
 }
+
+
 
 /**
  * build new controller file using template
