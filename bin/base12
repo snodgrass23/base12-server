@@ -1,11 +1,10 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
+dirname="`npm root -g`/base12/scripts"
 scriptname=$1
 
 shift
 
-${DIR}/../scripts/${scriptname} $@
+echo "$dirname/$scriptname.js" "$@"
 
 exit 0
