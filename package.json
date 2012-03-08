@@ -16,7 +16,8 @@
     "async":"latest",
     "underscore":"latest",
     "jade":"latest",
-    "commander":"latest"
+    "commander":"latest",
+    "underscore":"latest"
   },
   "devDependencies": {
 
