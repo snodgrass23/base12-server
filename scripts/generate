@@ -1,16 +1,23 @@
 #!/usr/bin/env node
 
 var path = require('path');
+var commander = require('commander');
 
-var gen_file = './generators' + process.argv[3] + '.js';
-console.log("GEN file:", gen_file);
+commander
+  .usage('<type> [options]')
+  .parse(process.argv);
+
+var gen_file = __dirname + '/generators/' + commander.args[0] + '.js';
 
 path.exists(gen_file, function(exists) {
   if (exists) {
     var generator = require(gen_file);
-    generator.apply(generator, process.argv);
+    console.log('');
+    console.log('Running ' + gen_file + ':');
+    generator(commander.args.slice(1));
+    console.log('');
   }
   else {
-    console.log("Unable to find generator '" + gen_file + "'");
+    console.warn("Unable to find generator '" + gen_file + "'");
   }
 });
