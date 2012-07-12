@@ -1,0 +1,46 @@
+{
+  "defaults": {
+    "platform": "ubuntu-vps"
+  },
+  "prod.web1": {
+    "type": "node",
+    "host": "1.2.3.4",
+    "environment": {
+      "http_port": 80
+    }
+  },
+  "prod.web2": {
+    "type": "node",
+    "host": "5.6.7.8",
+    "environment": {
+      "http_port": 80
+    }
+  },
+  "prod.db1": {
+    "type": "mongo",
+    "host": "2.3.4.5"
+  },
+  "prod.mq1": {
+    "type": "redis",
+    "host": "6.7.8.9"
+  },
+  "prod.media1": {
+    "type": "nginx",
+    "host": "9.1.2.3"
+  },
+  "stage.web1": {
+    "type": "node",
+    "host": "3.4.5.6",
+    "environment": {
+      "http_port": 80
+    }
+  },
+  "stage.db1": {
+    "type": "mongo",
+    "host": "3.4.5.6"
+  },
+  "stage.mq1": {
+    "type": "redis",
+    "host": "3.4.5.6"
+  }
+}
