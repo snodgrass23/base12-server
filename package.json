@@ -1,7 +1,7 @@
 {
   "name":"base12",
   "description":"12factor.net app platform for node.js, built on express 3",
-  "version":"0.3.3",
+  "version":"0.3.4",
   "author":"Hunter Loftis <hunter@hunterloftis.com>",
   "contributors": [
     { "name": "Hunter Loftis", "email": "hunter@hunterloftis.com" },
