@@ -43,8 +43,13 @@ generate () {
   fi
   on_fail 'Clone of base12 failed!'
 
-  # Remove upstream git
+
   cd "${dest}"
+
+  # checkout component branch for testing right now
+  git checkout components
+
+  # Remove upstream git
   rm -rf .git
   on_fail 'Removal of git origin failed!'
 
@@ -55,8 +60,7 @@ generate () {
   # Show getting started text
   echo ''
   echo "Next: try your new base12 project!"
-  echo "'cd ${dest}'"
-  echo "'node run'"
+  echo "'cd ${dest} && make open'"
   echo ''
 }
 

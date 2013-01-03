@@ -1,7 +1,7 @@
 {
   "name":"base12",
   "description":"12factor.net app platform for node.js, built on express 3",
-  "version":"0.3.4",
+  "version":"0.3.5",
   "author":"Hunter Loftis <hunter@hunterloftis.com>",
   "contributors": [
     { "name": "Hunter Loftis", "email": "hunter@hunterloftis.com" },
@@ -12,13 +12,12 @@
     { "name": "Raquel Velez", "email": "raquel@skoomum.com" }
   ],
   "dependencies": {
-    "connect":"2.0.3",
-    "express":"git://github.com/Skookum/express.git",
-    "async":"latest",
-    "underscore":"latest",
-    "jade":"latest",
-    "commander":"latest",
-    "underscore":"latest"
+    "express": "3.0.1",
+    "connect": "2.6.2",
+    "async":"0.1.11",
+    "underscore":"1.4.2",
+    "jade":"0.27.6",
+    "commander":"1.1.1"
   },
   "devDependencies": {
 
