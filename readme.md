@@ -5,8 +5,55 @@
 ```shell
 $ sudo npm install -g base12
 $ base12 new projectname && cd projectname
-$ make start
+$ make open
 ```
+
+# Make commands
+
+#### Install all modules
+
+      $ make setup
+
+#### Run the app with one process and without file change restarts
+
+      $ make simple
+
+#### Run the app with default settings and open browser to app url
+
+      $ make open
+
+#### Run the app without default number of processes (num cpu's in machine)
+
+      $ make run
+
+#### Run the app, limiting to a single process
+
+      $ make run 1
+
+#### Run the app and cycle on file changes
+
+      $ make cycle
+
+#### Run the app and cycle on file changes, limiting to a single process
+
+      $ make cycle 1
+
+#### Run the app with single process and node profiling
+
+      $ make profile
+
+#### Run the app with single process and node profiling using `prof_lazy` option
+
+      $ make profile-lazy
+
+#### Run the app with default settings with node debugging enabled
+
+      $ make debug
+
+#### Run the app with default settings with node debugging enabled and immediately break on first line
+
+      $ make debug-brk
+
 
 # What you get
 
@@ -52,14 +99,12 @@ test                  -- tests (mocha by default)
 tmp                   -- your app can store temporary files here
 
 app.js                -- runs your app
-config.default.json   -- default config (no sensative passwords or location specific options)
-config.local.json     -- local config (ignored by git, create to store sensative information and location specific options)
-config.test.json      -- config for running tests
+config.default.js     -- default config (no sensative passwords or location specific options)
+config.local.js       -- local config (ignored by git, create to store sensative information and location specific options)
+config.test.js        -- config for running tests
 Makefile              -- automated task makefile
 package.json          -- npm package.json
 ```
-
-## Writing new components
 
 
 ## Writing new components and libs
@@ -88,52 +133,37 @@ module.exports = function(app) {
 
 ## Updating constants and config
 
-Application constants (values that do not change from machine to machine) are located in `config.default.json`.
+Application constants (values that do not change from machine to machine) are located in `config.default.js`.
 
-```json
-{
-  "http_port": 3000,
-  "cluster": true,
-  "mongoose_url": "mongodb://localhost/base12"
-}
+```js
+module.exports = {
+  http_port: 3000,
+  cluster: true,
+  request_timeout: 100000,
+  session_secret: "base12secret",
+  log_requests: false,
+  stylus_compress: 1,
+  stylus_debug: 1,
+  stylus_force: 1,
+  test: false,
+  redis_host: "localhost",
+  redis_port: 6379,
+  redis_pass: "",
+  redis_debug: false,
+  mongoose_url: "mongodb://localhost/base12"
+};
 ```
 
-Environment config (values that can change from machine to machine) are located in `config.local.json`, which is not tracked by git.
+Environment config (values that can change from machine to machine) are located in `config.local.js`, which is not tracked by git.
 You can create this file whenever needed and it values will override the defaults if both exist.
 
-```json
-{
-  "http_port": 80,
-  "mongoose_url": "mongodb://username:passsword@127.0.0.1/base12"
-}
+```js
+module.exports = {
+  http_port: 80,
+  mongoose_url: "mongodb://username:passsword@127.0.0.1/base12"
+};
 ```
 
-
-## Common commands
-
-### Install packages and default environment config
-
-      $ make setup
-
-### Build assets (TODO)
-
-      $ make build
-
-### Run the app
-
-      $ make run
-
-### Run the app, limiting to a single process
-
-      $ make run 1
-
-### Run the app and cycle on file changes
-
-      $ make cycle
-
-### Run the app and cycle on file changes, limiting to a single process
-
-      $ make cycle 1
 
 
 ## The 12 Factors
@@ -155,13 +185,13 @@ Manage your dependencies in `package.json`.
 
 "Store config in the environment."
 
-Base12 uses the untracked config.local.json file to manage environment config. Once tooling is better supported on hosts, it will likely move to environment variables.
+Base12 uses the untracked config.local.js file to manage environment config. Once tooling is better supported on hosts, it will likely move to environment variables.
 
 ### 4. Backing services
 
 "Treat backing services as attached resources."
 
-Backing service configuration is stored in config.local.json on each host.
+Backing service configuration is stored in config.local.js on each host.
 
 ### 5. Build, release, run
 
@@ -201,7 +231,7 @@ Startup is nearly immediate.
 
 "Keep development, staging, and production as similar as possible."
 
-We encourage you to keep your config.local.json configurations as similar as possible across machines to maximize parity.
+We encourage you to keep your config.local.js configurations as similar as possible across machines to maximize parity.
 
 ### 11. Logs
 
@@ -222,3 +252,19 @@ Built-in scripts include provisioning and deployment, tests, dependency manageme
   * npm >= 1.1.x
   * redis
   * mongodb (if using default user component)
+
+
+
+## License (The BSD3 License)
+
+Copyright (c) 2013, Skookum Digital Works
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the names of "Skookum", "Skookum Digital Works", "SDW", nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
